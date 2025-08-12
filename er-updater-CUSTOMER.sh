@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Define Elasticsearch Credentials
+# Define Elasticsearch Credentials & customer details
 ES_URL="https://myclustername.es.my-region.provider.elastic-cloud.com:443"
 ES_USER="username"
 ES_PASS="password"
