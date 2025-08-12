@@ -1,0 +1,66 @@
+PUT _index_template/gh-er-tracker
+{
+  "template": {
+    "settings": {
+      "index": {
+        "default_pipeline": "gh-er-parser",
+        "mode": "standard"
+      }
+    },
+    "mappings": {
+      "properties": {
+        "Status": {
+          "type": "keyword"
+        },
+        "Release-vehicle": {
+          "type": "keyword"
+        },
+        "Priority": {
+          "type": "keyword"
+        },
+        "CreatedAt": {
+          "type": "date"
+        },
+        "Title": {
+          "type": "text"
+        },
+        "Support-Case": {
+          "type": "keyword"
+        },
+        "PM-comment": {
+          "type": "text"
+        },
+        "Support_Case_URL": {
+          "type": "keyword"
+        },
+        "UpdatedAt": {
+          "type": "date"
+        },
+        "Delivery-Blocker": {
+          "type": "boolean"
+        },
+        "Requester": {
+          "type": "keyword"
+        },
+        "Number": {
+          "type": "keyword"
+        },
+        "Summary": {
+          "type": "text"
+        },
+        "Customer-Priority": {
+          "type": "keyword"
+        },
+        "Body": {
+          "type": "text"
+        }
+      }
+    }
+  },
+  "index_patterns": [
+    "er-tracker-*"
+  ],
+  "composed_of": [],
+  "ignore_missing_component_templates": [],
+  "allow_auto_create": true
+}
