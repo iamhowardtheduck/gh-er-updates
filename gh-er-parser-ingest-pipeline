@@ -1,0 +1,91 @@
+PUT _ingest/pipeline/gh-er-parser
+{
+  "processors": [
+    {
+      "set": {
+        "ignore_failure": true,
+        "field": "_id",
+        "copy_from": "Number"
+      }
+    },
+    {
+      "grok": {
+        "ignore_failure": true,
+        "field": "Body",
+        "patterns": [
+          "Requester\\n(?<Requester>.*)"
+        ]
+      }
+    },
+    {
+      "grok": {
+        "ignore_failure": true,
+        "field": "Body",
+        "patterns": [
+          "Summary\\n(?<Summary>.*)"
+        ]
+      }
+    },
+    {
+      "grok": {
+        "ignore_failure": true,
+        "field": "Body",
+        "patterns": [
+          "PM-comment\\n(?<PM-comment>.*)"
+        ]
+      }
+    },
+    {
+      "grok": {
+        "ignore_failure": true,
+        "ignore_missing": true,
+        "field": "Body",
+        "patterns": [
+          "Customer-Priority\\n(?<Customer-Priority>.*)"
+        ]
+      }
+    },
+    {
+      "grok": {
+        "ignore_failure": true,
+        "field": "Body",
+        "patterns": [
+          "Release-vehicle\\n(?<Release-vehicle>.*)"
+        ]
+      }
+    },
+    {
+      "grok": {
+        "ignore_failure": true,
+        "field": "Body",
+        "patterns": [
+          "Link to support case\\*\\*: \\[%{INT:Support-Case}"
+        ]
+      }
+    },
+    {
+      "grok": {
+        "ignore_failure": true,
+        "field": "Body",
+        "patterns": [
+          "Link to support case\\*\\*:\\s+\\[%{INT}\\]\\((?<Support_Case_URL>[^\\)]+)\\)"
+        ]
+      }
+    },
+    {
+      "remove": {
+        "ignore_failure": true,
+        "ignore_missing": true,
+        "field": "Body"
+      }
+    },
+    {
+      "set": {
+        "ignore_failure": true,
+        "field": "Delivery-Blocker",
+        "value": true,
+        "if": "ctx.Number == 'a12345' || ctx.Number == 'b67890'"
+      }
+    }
+  ]
+}
