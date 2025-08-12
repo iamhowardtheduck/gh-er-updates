@@ -28,3 +28,12 @@ With the script now updated, open up and update the values to reflect your clust
 `CUSTOMER_SEARCH="my-customer-search-term-from-within-brackets"`
 
 `ES_INDEX="er-tracker-$CUSTOMER_INDEX"`
+
+
+## Make the script executable then run it
+`sudo chmod +x er-updater-CUSTOMER.sh`
+
+`./er-updater-CUSTOMER.sh`
+
+## Express yourself with a dashboard
+Upload dashboard and associated saved objects from er-updater.ndjson
