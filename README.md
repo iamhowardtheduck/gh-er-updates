@@ -8,6 +8,9 @@ Run the `er-updater-setup.sh` which will walk you through the RSA key setup for 
 Change the word `CUSTOMER` within `er-updater-CUSTOMER.sh` script to reflect your customer.
 You can accomplish with either the mv (move) or cp (copy/paste) command.
 
+## Add the index template
+In DevTools of your cluster, run the gh-er-track-index-template portion.
+
 ## er-updater-abc123.sh
 With the script now updated, open up and update the values to reflect your cluster:
 
