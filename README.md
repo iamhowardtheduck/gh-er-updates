@@ -11,6 +11,9 @@ You can accomplish with either the mv (move) or cp (copy/paste) command.
 ## Add the index template
 In DevTools of your cluster, run the gh-er-track-index-template portion.
 
+## Add the ingest pipelein
+In DevTools of your cluster, run the gh-er-parser-ingest-pipeline portion.
+
 ## er-updater-abc123.sh
 With the script now updated, open up and update the values to reflect your cluster:
 
